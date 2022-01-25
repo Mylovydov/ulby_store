@@ -1,19 +1,17 @@
+const { Type } = require('../models/models')
+const ApiError = require('../error/ApiError')
+
 class TypeController {
 
     async createType (request, response) {
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }
+        const { name } = request.body
+        const type = await Type.create({name})
+        response.json(type)
     }
 
     async getAllTypes (request, response) {
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        }
+        const types = await Type.findAll()
+        response.json(types)
     }
 }
 

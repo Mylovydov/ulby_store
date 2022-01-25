@@ -14,14 +14,13 @@ class UserController {
         try {
             
         } catch (error) {
-            console.log(error);
+            console.log(error)
         }
     }
 
     // Функция, которая будет проверять зарегистрирован ли пользователь (относится к роуту auth)
     async check (request, response, next) {
         try {
-
 
             // пример получения query параметров
             const {id} = request.query
