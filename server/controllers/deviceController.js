@@ -18,8 +18,6 @@ class DeviceController {
             const device = await Device.create({ name, price, brandId, typeId, img: fileName })
 
             if (info) {
-                console.log(info);
-                console.log(JSON.parse(info));
                 // Если данные передаются через FormData, то данные приходят в виде строки
                 // На фронте мы будем перегонять массив в JSON строку, а на бэке обратно в JS объекты
                 info = JSON.parse(info)
@@ -75,6 +73,7 @@ class DeviceController {
         const device = await Device.findOne(
             {
                 where: { id },
+                // Добавляем поле с характеристиками
                 include: [{model: DeviceInfo, as: 'info'}]
             }
         )
